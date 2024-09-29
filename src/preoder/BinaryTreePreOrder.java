@@ -39,6 +39,28 @@ public class BinaryTreePreOrder {
 			printPreOrder(root.left);
 			printPreOrder(root.right);
 		}
+		
+		public static void printInOrder(Node root) {
+			if(root == null) {
+				System.out.print("-1, ");
+				return;
+			}
+			
+			printPreOrder(root.left);
+			System.out.print(root.data + " , ");
+			printPreOrder(root.right);
+		}
+		
+		public static void printPostOrder(Node root) {
+			if(root == null) {
+				System.out.print("-1, ");
+				return;
+			}
+			
+			printPreOrder(root.left);
+			printPreOrder(root.right);
+			System.out.print(root.data + " , ");
+		}
 	}
 	
 
@@ -56,7 +78,19 @@ public class BinaryTreePreOrder {
 		
 		System.out.println("Binary Tree Index is  " + binaryTree.index);
 		
+		
+		System.out.print("Pre Order : ");
 		binaryTree.printPreOrder(root);
+		
+		System.out.println();
+		
+		System.out.print("In Order : ");
+		binaryTree.printInOrder(root);
+		
+		System.out.println();
+		
+		System.out.print("Post Order : ");
+		binaryTree.printPostOrder(root);
 
 	}
 
