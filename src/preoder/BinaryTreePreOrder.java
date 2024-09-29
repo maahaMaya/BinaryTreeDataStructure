@@ -28,7 +28,20 @@ public class BinaryTreePreOrder {
 			
 			return newNode;
 		}
+		
+		public static void printPreOrder(Node root) {
+			if(root == null) {
+				//System.out.print("-1, ");
+				return;
+			}
+			
+			System.out.print(root.data + " , ");
+			printPreOrder(root.left);
+			printPreOrder(root.right);
+		}
 	}
+	
+
 
 	public static void main(String[] args) {
 		
@@ -42,6 +55,8 @@ public class BinaryTreePreOrder {
 		System.out.println("Root right child is  " + root.right.data);
 		
 		System.out.println("Binary Tree Index is  " + binaryTree.index);
+		
+		binaryTree.printPreOrder(root);
 
 	}
 
