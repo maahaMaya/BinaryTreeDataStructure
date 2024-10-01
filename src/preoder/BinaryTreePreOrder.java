@@ -117,6 +117,20 @@ public class BinaryTreePreOrder {
 			return leftChildSum + rightChildSum + root.data;
 		}
 		
+		public static int treeDiameter(Node root) {
+			if(root == null) {
+				return 0;
+			}
+			
+			int leftDiameter = treeDiameter(root.left);
+			int leftHeight = treeHeight(root.left);
+			int rightDiameter = treeDiameter(root.right);
+			int rightHeight = treeHeight(root.right);
+			
+			int selfDiameter = leftHeight + rightHeight + 1;
+			return Math.max(selfDiameter, Math.max(rightDiameter, rightHeight));
+		}
+		
 	}
 
 	public static void main(String[] args) {
