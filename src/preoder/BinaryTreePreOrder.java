@@ -177,6 +177,8 @@ public class BinaryTreePreOrder {
 		System.out.println("Tree Height : " + binaryTree.treeHeight(root));
 		
 		System.out.println("Tree Node Sum : " + binaryTree.treeNodeSum(root));
+		
+		System.out.println("Tree Diameter is : " + binaryTree.treeDiameter(root));
 
 	}
 
