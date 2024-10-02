@@ -117,7 +117,7 @@ public class BinaryTreePreOrder {
 			return leftChildSum + rightChildSum + root.data;
 		}
 		
-		public static int treeDiameter(Node root) {
+		public static int treeDiameter(Node root) { // O(n*2)
 			if(root == null) {
 				return 0;
 			}
@@ -129,6 +129,28 @@ public class BinaryTreePreOrder {
 			
 			int selfDiameter = leftHeight + rightHeight + 1;
 			return Math.max(selfDiameter, Math.max(rightDiameter, rightHeight));
+		}
+		
+		static class InfoTree{
+			int treeDiameter;
+			int treeHeight;
+			
+			public InfoTree(int treeDiameter, int treeHeight) {
+				this.treeDiameter = treeDiameter;
+				this.treeHeight = treeHeight;
+			}
+		}
+		public static InfoTree treeDiameterOptimized(Node root) { // O(n*2)
+			if(root == null) {
+				return new InfoTree(0, 0);
+			}
+			
+			InfoTree leftTreeInfo = treeDiameterOptimized(root.left);
+			InfoTree rightTreeInfo = treeDiameterOptimized(root.right);
+			
+			int treeDiameter = Math.max(Math.max(leftTreeInfo.treeDiameter, rightTreeInfo.treeDiameter), leftTreeInfo.treeHeight + rightTreeInfo.treeHeight + 1);
+			int treeHeight = Math.max(leftTreeInfo.treeHeight, rightTreeInfo.treeHeight) + 1;
+			return new InfoTree(treeDiameter, treeHeight);
 		}
 		
 	}
@@ -178,7 +200,9 @@ public class BinaryTreePreOrder {
 		
 		System.out.println("Tree Node Sum : " + binaryTree.treeNodeSum(root));
 		
-		System.out.println("Tree Diameter is : " + binaryTree.treeDiameter(root));
+		System.out.println("Tree Diameter is O(n*2): " + binaryTree.treeDiameter(root));
+		
+		System.out.println("Tree Diameter is O(n): " + binaryTree.treeDiameterOptimized(root).treeDiameter);
 
 	}
 
