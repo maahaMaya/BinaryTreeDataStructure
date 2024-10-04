@@ -1,6 +1,7 @@
 package preoder;
 
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class BinaryTreePreOrder {
@@ -154,6 +155,16 @@ public class BinaryTreePreOrder {
 		}
 		
 	}
+	
+	public static boolean isSubTree(Node root, Node subRoot) {
+		if(root == null) {
+			return false;
+		}
+		
+		//someLogic
+		return true;
+		
+	}
 
 	public static void main(String[] args) {
 
@@ -203,6 +214,14 @@ public class BinaryTreePreOrder {
 		System.out.println("Tree Diameter is O(n*2): " + binaryTree.treeDiameter(root));
 		
 		System.out.println("Tree Diameter is O(n): " + binaryTree.treeDiameterOptimized(root).treeDiameter);
+		
+		PriorityQueue<Integer> minPq = new PriorityQueue<Integer>();
+		minPq.add(5);
+		minPq.add(2);
+		minPq.add(8);
+		minPq.add(1);
+		
+		minPq.forEach((Integer val) -> System.out.println(val));
 
 	}
 
