@@ -152,7 +152,13 @@ public class BinaryTreePreOrder {
 			int treeHeight = Math.max(leftTreeInfo.treeHeight, rightTreeInfo.treeHeight) + 1;
 			return new InfoTree(treeDiameter, treeHeight);
 		}
+		
+		
+		public static void treeTopView(Node node) {
+			
+		}
 	}
+	
 	
 
 
