@@ -1,5 +1,6 @@
 package preoder;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -153,9 +154,28 @@ public class BinaryTreePreOrder {
 			return new InfoTree(treeDiameter, treeHeight);
 		}
 		
+		static class TreeInfo{
+			Node node;
+			int hd;
+			
+			public TreeInfo(Node node, int hd) {
+				this.node = node;
+				this.hd = hd;
+			}
+		} 
 		
 		public static void treeTopView(Node node) {
+			//Level Order
+			Queue<TreeInfo> q = new LinkedList<>();
+			HashMap<Integer, Node> map = new HashMap<>();
 			
+			int min = 0, max = 0;
+			q.add(new TreeInfo(node, max));
+			q.add(null);
+			
+			while(!q.isEmpty()) {
+				
+			}
 		}
 	}
 	
