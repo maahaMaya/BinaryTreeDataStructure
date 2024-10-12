@@ -170,12 +170,37 @@ public class BinaryTreePreOrder {
 			HashMap<Integer, Node> map = new HashMap<>();
 			
 			int min = 0, max = 0;
-			q.add(new TreeInfo(node, max));
+			q.add(new TreeInfo(node, 0));
 			q.add(null);
 			
 			while(!q.isEmpty()) {
-				
+				TreeInfo cuurentTreeInfo = q.remove();
+				if(cuurentTreeInfo == null) {
+					if(q.isEmpty()) {
+						break;
+					}else {
+						q.add(null);
+					}
+				}
+				else {
+					if(!map.containsKey(cuurentTreeInfo.hd)) {
+						map.put(cuurentTreeInfo.hd, cuurentTreeInfo.node);
+					}
+					if(cuurentTreeInfo.node.left != null) {
+						q.add(new TreeInfo(cuurentTreeInfo.node.left, cuurentTreeInfo.hd-1));
+						min = Math.min(max, cuurentTreeInfo.hd-1);
+					}
+					if(cuurentTreeInfo.node.right != null) {
+						q.add(new TreeInfo(cuurentTreeInfo.node.right, cuurentTreeInfo.hd+1));
+						max = Math.max(max, cuurentTreeInfo.hd+1);
+					}
+				}
 			}
+			
+			for(int i = min; i <= max; i++) {
+				System.out.print(map.get(i).data+" ");
+			}
+			System.out.println();
 		}
 	}
 	
@@ -231,6 +256,8 @@ public class BinaryTreePreOrder {
 		System.out.println("Tree Diameter is O(n*2): " + binaryTree.treeDiameter(root));
 		
 		System.out.println("Tree Diameter is O(n): " + binaryTree.treeDiameterOptimized(root).treeDiameter);
+		
+		binaryTree.treeTopView(root);
 	}
 
 }
