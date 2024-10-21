@@ -203,8 +203,10 @@ public class BinaryTreePreOrder {
 			System.out.println();
 		}
 		
-		public static void KthLevel(Node node, int level, int k) {
-			
+		public static void KthLevel(Node root, int level, int k) {
+			if(root == null) {
+				return;
+			}
 		}
 	}
 	
