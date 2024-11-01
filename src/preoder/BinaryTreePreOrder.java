@@ -207,6 +207,14 @@ public class BinaryTreePreOrder {
 			if(root == null) {
 				return;
 			}
+			
+			if(level == k) {
+				System.out.print(root.data + " ");
+				return;
+			}
+			
+			KthLevel(root.left, level + 1, k);
+			KthLevel(root.right, level + 1, k);
 		}
 	}
 	
@@ -263,7 +271,12 @@ public class BinaryTreePreOrder {
 		
 		System.out.println("Tree Diameter is O(n): " + binaryTree.treeDiameterOptimized(root).treeDiameter);
 		
+		System.out.print("Tree top view: ");
 		binaryTree.treeTopView(root);
+		
+		
+		System.out.print("Tree Kth level view: ");
+		binaryTree.KthLevel(root, 1, 2);
 	}
 
 }
