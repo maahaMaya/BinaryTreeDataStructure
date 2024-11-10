@@ -218,7 +218,7 @@ public class BinaryTreePreOrder {
 		}
 	}
 	
-	//lowest common ancestors
+	//lowest common ancestor
 	public static Node lowestCommonAncestor(Node root, int n1, int n2) {
 		return null;
 	}
