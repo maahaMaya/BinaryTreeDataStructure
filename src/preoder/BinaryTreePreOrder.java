@@ -1,5 +1,6 @@
 package preoder;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -216,12 +217,53 @@ public class BinaryTreePreOrder {
 			KthLevel(root.left, level + 1, k);
 			KthLevel(root.right, level + 1, k);
 		}
+		
+		public static boolean getPath(Node root, int n, ArrayList<Node> path) {
+			if(root == null) {
+				return false;
+			}
+			
+			path.add(root);
+			
+			if(root.data == n) {
+				return true;
+			}
+			
+			boolean foundLeft = getPath(root.left, n, path);
+			boolean foundRight = getPath(root.right, n, path);
+			
+			if(foundLeft || foundRight) {
+				return true;
+			}
+			
+			path.remove(path.size() - 1);
+			return false;
+			
+		}
+		//lowest common ancestor
+		public static Node lowestCommonAncestor(Node root, int n1, int n2) {
+			ArrayList<Node> path1 = new ArrayList<>();
+			ArrayList<Node> path2 = new ArrayList<>();
+			
+			getPath(root, n1, path1);
+			getPath(root, n2, path2);
+			
+			//last common ancestor
+			int i = 0;
+			for(; i < path1.size() && i < path2.size(); i++) {
+				if(path1.get(i) != path2.get(i)) {
+					break;
+				}
+			}
+			
+			//last equal node -> i - 1th
+			Node lca = path1.get(i - 1);
+			return lca;
+		}
 	}
 	
-	//lowest common ancestor
-	public static Node lowestCommonAncestor(Node root, int n1, int n2) {
-		return null;
-	}
+	
+
 	
 	
 
@@ -282,6 +324,9 @@ public class BinaryTreePreOrder {
 		
 		System.out.print("Tree Kth level view: ");
 		binaryTree.KthLevel(root, 1, 2);
+		
+		System.out.println();
+		System.out.println("Lowest common ancestors : " +binaryTree.lowestCommonAncestor(root, 4, 6).data);
 	}
 
 }
