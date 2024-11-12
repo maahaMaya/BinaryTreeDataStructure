@@ -240,7 +240,8 @@ public class BinaryTreePreOrder {
 			return false;
 			
 		}
-		//lowest common ancestor
+		
+		//lowest common ancestor _ approach1
 		public static Node lowestCommonAncestor(Node root, int n1, int n2) {
 			ArrayList<Node> path1 = new ArrayList<>();
 			ArrayList<Node> path2 = new ArrayList<>();
@@ -260,12 +261,12 @@ public class BinaryTreePreOrder {
 			Node lca = path1.get(i - 1);
 			return lca;
 		}
+		
+		//lowest common ancestor _ approach2
+		public static Node lowestCommonAncestor2(Node root, int n1, int n2) {
+			return null;
+		}
 	}
-	
-	
-
-	
-	
 
 
 	public static void main(String[] args) {
