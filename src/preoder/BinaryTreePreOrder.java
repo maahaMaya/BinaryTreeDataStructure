@@ -264,6 +264,9 @@ public class BinaryTreePreOrder {
 		
 		//lowest common ancestor _ approach2
 		public static Node lowestCommonAncestor2(Node root, int n1, int n2) {
+			if(root == null || root.data == n1 || root.data == n2) {
+				return root;
+			}
 			return null;
 		}
 	}
