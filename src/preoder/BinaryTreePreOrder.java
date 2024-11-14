@@ -262,7 +262,7 @@ public class BinaryTreePreOrder {
 			return lca;
 		}
 		
-		//lowest common ancestor _ approach2
+		//lowest common ancestors _ approach2
 		public static Node lowestCommonAncestor2(Node root, int n1, int n2) {
 			if(root == null || root.data == n1 || root.data == n2) {
 				return root;
@@ -330,7 +330,7 @@ public class BinaryTreePreOrder {
 		binaryTree.KthLevel(root, 1, 2);
 		
 		System.out.println();
-		System.out.println("Lowest common ancestors : " +binaryTree.lowestCommonAncestor(root, 4, 6).data);
+		System.out.println("Lowest common ancestors : " +binaryTree.lowestCommonAncestor(root, 4, 5).data);
 	}
 
 }
