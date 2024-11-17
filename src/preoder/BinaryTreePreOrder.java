@@ -264,9 +264,22 @@ public class BinaryTreePreOrder {
 		
 		//lowest common ancestor _ approach2
 		public static Node lowestCommonAncestor2(Node root, int n1, int n2) {
+			
 			if(root == null || root.data == n1 || root.data == n2) {
 				return root;
 			}
+			
+			Node left_lowestCommonAncestor2 = lowestCommonAncestor2(root.left, n1, n2);
+			Node right_lowestCommonAncestor2 = lowestCommonAncestor2(root.right, n1, n2);
+			
+			if(left_lowestCommonAncestor2 == null) {
+				return left_lowestCommonAncestor2;
+			}
+			
+			if(right_lowestCommonAncestor2 == null) {
+				return right_lowestCommonAncestor2;
+			}
+			
 			return null;
 		}
 	}
@@ -331,6 +344,9 @@ public class BinaryTreePreOrder {
 		
 		System.out.println();
 		System.out.println("Lowest common ancestors : " +binaryTree.lowestCommonAncestor(root, 4, 5).data);
+		
+		System.out.println();
+		System.out.println("Lowest common ancestors_approach2 : " +binaryTree.lowestCommonAncestor2(root, 4, 5));
 	}
 
 }
