@@ -283,6 +283,7 @@ public class BinaryTreePreOrder {
 			return null;
 		}
 		
+		//find minimumDistance
 		public static int minimumDistance(Node root, int n1, int n2) {
 			return 0;
 		}
